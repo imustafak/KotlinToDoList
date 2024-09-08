@@ -1,12 +1,13 @@
-package com.example.todolist
+package com.example.todolist.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todolist.R
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.RowHolder>() {
+class RecyclerViewAdapter(private val itemList: List<Int>) : RecyclerView.Adapter<RecyclerViewAdapter.RowHolder>()  {
 
     class RowHolder(view : View) : RecyclerView.ViewHolder(view) {
         val editText: EditText = itemView.findViewById(R.id.editTextText)
@@ -21,11 +22,13 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.RowHolder>(
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return itemList.size
     }
 
     override fun onBindViewHolder(holder: RowHolder, position: Int) {
         holder.editText.setText("Item $position")
 
     }
+
+
 }
